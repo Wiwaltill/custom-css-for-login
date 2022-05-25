@@ -4,7 +4,7 @@
  * Description: Einfache gestaltung des Admin Logins via CSS
  * Author: Till Esser
  * Author URI: http://till-esser.de
- * Version: 1.5
+ * Version: 2.0
  * Text Domain: custom-login
  * Domain Path: /languages
  */
@@ -48,7 +48,7 @@ if( ! class_exists( 'UpdateChecker' ) ) {
 		public function __construct() {
 
 			$this->plugin_slug = plugin_basename( __DIR__ );
-			$this->version = '1.5';
+			$this->version = '2.0';
 			$this->cache_key = 'custom_upd';
 			$this->cache_allowed = false;
 

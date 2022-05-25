@@ -4,253 +4,222 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-add_action( 'admin_menu', 'custom_css_for_login_add_admin_menu' );
-add_action( 'admin_init', 'custom_css_for_login_settings_init' );
+// Settings Page: CustomLogin
+// Retrieving values: get_option( 'your_field_id' )
+class CustomLogin_Settings_Page {
 
+	public function __construct() {
+		add_action( 'admin_menu', array( $this, 'wph_create_settings' ) );
+		add_action( 'admin_init', array( $this, 'wph_setup_sections' ) );
+		add_action( 'admin_init', array( $this, 'wph_setup_fields' ) );
+                add_action( 'admin_footer', array( $this, 'media_fields' ) );
+		add_action( 'admin_enqueue_scripts', 'wp_enqueue_media' );
+	}
 
-function custom_css_for_login_add_admin_menu(  ) { 
+	public function wph_create_settings() {
+		$page_title = 'Custom CSS for Login';
+		$menu_title = 'Custom Login';
+		$capability = 'manage_options';
+		$slug = 'custom_css_for_login';
+		$callback = array($this, 'wph_settings_content');
+                add_options_page($page_title, $menu_title, $capability, $slug, $callback);
+		
+	}
+    
+	public function wph_settings_content() { ?>
+		<div class="wrap">
+			<h1>Custom Login</h1>
+			<?php settings_errors(); ?>
+			<form method="POST" action="options.php">
+				<?php
+					settings_fields( 'CustomLogin' );
+					do_settings_sections( 'CustomLogin' );
+					submit_button();
+				?>
+			</form>
+		</div> <?php
+	}
 
-	add_options_page( 'Custom Login', 'Custom Login', 'manage_options', 'custom_css_for_login', 'custom_css_for_login_options_page' );
+	public function wph_setup_sections() {
+		add_settings_section( 'CustomLogin_section', '', array(), 'CustomLogin' );
+	}
 
-}
-
-
-function custom_css_for_login_settings_init(  ) { 
-
-	register_setting( 'pluginPage', 'custom_css_for_login_settings' );
-
-	add_settings_section(
-		'custom_css_for_login_pluginPage_section', 
-		__( 'Logo', 'custom-login' ), 
-		'custom_css_for_login_settings_section_callback', 
-		'pluginPage'
-	);
-
-	add_settings_field( 
-		'custom_css_for_login_checkbox_field_1', 
-		__( 'Use your own logo', 'custom-login' ), 
-		'custom_css_for_login_checkbox_field_1_render', 
-		'pluginPage', 
-		'custom_css_for_login_pluginPage_section' 
-	);
-	
-	add_settings_field( 
-		'custom_css_for_login_text_field_0', 
-		__( 'Link to the graphic', 'custom-login' ), 
-		'custom_css_for_login_text_field_0_render', 
-		'pluginPage', 
-		'custom_css_for_login_pluginPage_section' 
-	);
-	
-	add_settings_field( 
-		'custom_css_for_login_text_field_1', 
-		__( 'Logo height', 'custom-login' ), 
-		'custom_css_for_login_text_field_1_render', 
-		'pluginPage', 
-		'custom_css_for_login_pluginPage_section' 
-	);
-	
-	add_settings_field( 
-		'custom_css_for_login_text_field_2', 
-		__( 'Logo width', 'custom-login' ), 
-		'custom_css_for_login_text_field_2_render', 
-		'pluginPage', 
-		'custom_css_for_login_pluginPage_section' 
-	);
-
-	add_settings_field( 
-		'custom_css_for_login_checkbox_field_2', 
-		__( 'Logo round off', 'custom-login' ), 
-		'custom_css_for_login_checkbox_field_2_render', 
-		'pluginPage', 
-		'custom_css_for_login_pluginPage_section' 
-	);
-
-	add_settings_field( 
-		'custom_css_for_login_checkbox_field_4', 
-		__( 'Logo hover off', 'custom-login' ), 
-		'custom_css_for_login_checkbox_field_4_render', 
-		'pluginPage', 
-		'custom_css_for_login_pluginPage_section' 
-	);
-	
-	add_settings_section(
-		'custom_css_for_login_pluginPage_section-2', 
-		__( 'Colours', 'custom-login' ), 
-		'custom_css_for_login_settings_section_2_callback', 
-		'pluginPage'
-	);
-	
-	add_settings_field( 
-		'custom_css_for_login_checkbox_field_3', 
-		__( 'Use own colours', 'custom-login' ), 
-		'custom_css_for_login_checkbox_field_3_render', 
-		'pluginPage', 
-		'custom_css_for_login_pluginPage_section-2' 
-	);
-	
-	add_settings_field( 
-		'custom_css_for_login_color_field_1', 
-		__( 'Accent colour', 'custom-login' ), 
-		'custom_css_for_login_color_field_1_render', 
-		'pluginPage', 
-		'custom_css_for_login_pluginPage_section-2' 
-	);
-
-	add_settings_field( 
-		'custom_css_for_login_checkbox_field_5', 
-		__( 'Button color black', 'custom-login' ), 
-		'custom_css_for_login_checkbox_field_5_render', 
-		'pluginPage', 
-		'custom_css_for_login_pluginPage_section-2' 
-	);
-	
-	add_settings_section(
-		'custom_css_for_login_pluginPage_section-3', 
-		__( 'Other', 'custom-login' ), 
-		'custom_css_for_login_settings_section_3_callback', 
-		'pluginPage'
-	);
-	
-	add_settings_field( 
-		'custom_css_for_login_textarea_1', 
-		__( 'Own CSS', 'custom-login' ), 
-		'custom_css_for_login_textarea_1_render', 
-		'pluginPage', 
-		'custom_css_for_login_pluginPage_section-3' 
-	);
-	
-}
-//Eigenes Logo verwenden
-function custom_css_for_login_checkbox_field_1_render(  ) { 
-
-	$options = get_option( 'custom_css_for_login_settings' );
-	?>
-	<input type='checkbox' name='custom_css_for_login_settings[custom_css_for_login_checkbox_field_1]' <?php checked( $options['custom_css_for_login_checkbox_field_1'], 1 ); ?> value='1'>
-	<?php
-
-}
-//Grafik Link
-function custom_css_for_login_text_field_0_render(  ) { 
-
-	$options = get_option( 'custom_css_for_login_settings' );
-	?>
-	<input type='url' name='custom_css_for_login_settings[custom_css_for_login_text_field_0]' value='<?php echo $options['custom_css_for_login_text_field_0']; ?>' placeholder="https://...">
-	<?php
-
-}
-//Lögo Höhe
-function custom_css_for_login_text_field_1_render(  ) { 
-
-	$options = get_option( 'custom_css_for_login_settings' );
-	?>
-	<input type='text' name='custom_css_for_login_settings[custom_css_for_login_text_field_1]' value='<?php echo $options['custom_css_for_login_text_field_1'];  ?>' placeholder="84px">
-	<?php
-
-}
-//Logo Breite
-function custom_css_for_login_text_field_2_render(  ) { 
-
-	$options = get_option( 'custom_css_for_login_settings' );
-	?>
-	<input type='text' name='custom_css_for_login_settings[custom_css_for_login_text_field_2]' value='<?php echo $options['custom_css_for_login_text_field_2']; ?>' placeholder="84px">
-	<?php
-
-}
-//Logo abrunden
-function custom_css_for_login_checkbox_field_4_render(  ) { 
-
-	$options = get_option( 'custom_css_for_login_settings' );
-	?>
-	<input type='checkbox' name='custom_css_for_login_settings[custom_css_for_login_checkbox_field_4]' <?php checked( $options['custom_css_for_login_checkbox_field_4'], 1 ); ?> value='1'>
-	<?php
-
-}
-//Logo-Hover off
-function custom_css_for_login_checkbox_field_2_render(  ) { 
-
-	$options = get_option( 'custom_css_for_login_settings' );
-	?>
-	<input type='checkbox' name='custom_css_for_login_settings[custom_css_for_login_checkbox_field_2]' <?php checked( $options['custom_css_for_login_checkbox_field_2'], 1 ); ?> value='1'>
-	<?php
-
-}
-//Eigene Farben verwenden
-function custom_css_for_login_checkbox_field_3_render(  ) { 
-
-	$options = get_option( 'custom_css_for_login_settings' );
-	?>
-	<input type='checkbox' name='custom_css_for_login_settings[custom_css_for_login_checkbox_field_3]' <?php checked( $options['custom_css_for_login_checkbox_field_3'], 1 ); ?> value='1'>
-	<?php
-
-}
-//Eigene Farbe
-function custom_css_for_login_color_field_1_render(  ) { 
-
-	$options = get_option( 'custom_css_for_login_settings' );
-	?>
-	<style>
-		input[type="color"] {
-			width: 193px;
+	public function wph_setup_fields() {
+		$fields = array(
+                    array(
+                        'section' => 'CustomLogin_section',
+                        'label' => 'Eigenes Logo verwenden',
+                        'id' => 'eigenes_logo_verwenden',
+                        'type' => 'checkbox',
+                    ),
+        
+                    array(
+                        'section' => 'CustomLogin_section',
+                        'label' => 'Grafik',
+                        'id' => 'grafik',
+                        'type' => 'media',
+                        'returnvalue' => 'url'
+                    ),
+        
+                    array(
+                        'section' => 'CustomLogin_section',
+                        'label' => 'Logo Höhe',
+                        'placeholder' => '84px',
+                        'id' => 'logo_hoehe',
+                        'type' => 'text',
+                    ),
+        
+                    array(
+                        'section' => 'CustomLogin_section',
+                        'label' => 'Logo Breite',
+                        'placeholder' => '84px',
+                        'id' => 'logo_breite',
+                        'type' => 'text',
+                    ),
+        
+                    array(
+                        'section' => 'CustomLogin_section',
+                        'label' => 'Logo abrunden',
+                        'id' => 'logo_abrunden',
+                        'type' => 'checkbox',
+                    ),
+        
+                    array(
+                        'section' => 'CustomLogin_section',
+                        'label' => 'Eigene Farben verwenden',
+                        'id' => 'eigene_farbe_verwenden',
+                        'type' => 'checkbox',
+                    ),
+        
+                    array(
+                        'section' => 'CustomLogin_section',
+                        'label' => 'Akzentfarbe',
+                        'id' => 'Akzentfarbe',
+                        'type' => 'color',
+                    ),
+        
+                    array(
+                        'section' => 'CustomLogin_section',
+                        'label' => 'Button Textfarbe Schwarz',
+                        'id' => 'button_textfarbe_schwarz',
+                        'type' => 'checkbox',
+                    ),
+        
+                    array(
+                        'section' => 'CustomLogin_section',
+                        'label' => 'Eigenes CSS',
+                        'id' => 'eigenes_css',
+                        'type' => 'textarea',
+                    )
+		);
+		foreach( $fields as $field ){
+			add_settings_field( $field['id'], $field['label'], array( $this, 'wph_field_callback' ), 'CustomLogin', $field['section'], $field );
+			register_setting( 'CustomLogin', $field['id'] );
 		}
-	</style>
-	<input type='color' name='custom_css_for_login_settings[custom_css_for_login_color_field_1]' value='<?php echo $options['custom_css_for_login_color_field_1']; ?>'>
-	<?php
+	}
+	public function wph_field_callback( $field ) {
+		$value = get_option( $field['id'] );
+		$placeholder = '';
+		if ( isset($field['placeholder']) ) {
+			$placeholder = $field['placeholder'];
+		}
+		switch ( $field['type'] ) {
+            
+                        case 'media':
+                            $field_url = '';
+                            if ($value) {
+                                if ($field['returnvalue'] == 'url') {
+                                    $field_url = $value;
+                                } else {
+                                    $field_url = wp_get_attachment_url($value);
+                                }
+                            }
+                            printf(
+                                '<input style="display:none;" id="%s" name="%s" type="text" value="%s"  data-return="%s"><div id="preview%s" style="margin-right:10px;border:1px solid #e2e4e7;background-color:#fafafa;display:inline-block;width: 100px;height:100px;background-image:url(%s);background-size:cover;background-repeat:no-repeat;background-position:center;"></div><input style="width: 19%%;margin-right:5px;" class="button menutitle-media" id="%s_button" name="%s_button" type="button" value="Select" /><input style="width: 19%%;" class="button remove-media" id="%s_buttonremove" name="%s_buttonremove" type="button" value="Clear" />',
+                                $field['id'],
+                                $field['id'],
+                                $value,
+                                $field['returnvalue'],
+                                $field['id'],
+                                $field_url,
+                                $field['id'],
+                                $field['id'],
+                                $field['id'],
+                                $field['id']
+                            );
+                            break;
 
+            
+                        case 'checkbox':
+                            printf('<input %s id="%s" name="%s" type="checkbox" value="1">',
+                                $value === '1' ? 'checked' : '',
+                                $field['id'],
+                                $field['id']
+                        );
+                            break;
+
+                        case 'textarea':
+                            printf( '<textarea name="%1$s" id="%1$s" placeholder="%2$s" rows="5" cols="50">%3$s</textarea>',
+                                $field['id'],
+                                $placeholder,
+                                $value
+                                );
+                                break;
+            
+			default:
+				printf( '<input name="%1$s" id="%1$s" type="%2$s" placeholder="%3$s" value="%4$s" />',
+					$field['id'],
+					$field['type'],
+					$placeholder,
+					$value
+				);
+		}
+		if( isset($field['desc']) ) {
+			if( $desc = $field['desc'] ) {
+				printf( '<p class="description">%s </p>', $desc );
+			}
+		}
+	}
+    
+    public function media_fields() {
+		?><script>
+			jQuery(document).ready(function($){
+				if ( typeof wp.media !== 'undefined' ) {
+					var _custom_media = true,
+					_orig_send_attachment = wp.media.editor.send.attachment;
+					$('.menutitle-media').click(function(e) {
+						var send_attachment_bkp = wp.media.editor.send.attachment;
+						var button = $(this);
+						var id = button.attr('id').replace('_button', '');
+						_custom_media = true;
+							wp.media.editor.send.attachment = function(props, attachment){
+							if ( _custom_media ) {
+								if ($('input#' + id).data('return') == 'url') {
+									$('input#' + id).val(attachment.url);
+								} else {
+									$('input#' + id).val(attachment.id);
+								}
+								$('div#preview'+id).css('background-image', 'url('+attachment.url+')');
+							} else {
+								return _orig_send_attachment.apply( this, [props, attachment] );
+							};
+						}
+						wp.media.editor.open(button);
+						return false;
+					});
+					$('.add_media').on('click', function(){
+						_custom_media = false;
+					});
+					$('.remove-media').on('click', function(){
+						var parent = $(this).parents('td');
+						parent.find('input[type="text"]').val('');
+						parent.find('div').css('background-image', 'url()');
+					});
+				}
+			});
+		</script><?php
+	}
+    
 }
-//Button Textfarbe schwarz
-function custom_css_for_login_checkbox_field_5_render(  ) { 
-
-	$options = get_option( 'custom_css_for_login_settings' );
-	?>
-	<input type='checkbox' name='custom_css_for_login_settings[custom_css_for_login_checkbox_field_5]' <?php checked( $options['custom_css_for_login_checkbox_field_5'], 1 ); ?> value='1'>
-	<?php
-
-}
-//Eigenes CSS
-function custom_css_for_login_textarea_1_render(  ) { 
-
-	$options = get_option( 'custom_css_for_login_settings' );
-	?>
-	<textarea cols='40' rows='5' name='custom_css_for_login_settings[custom_css_for_login_textarea_1]'><?php echo $options['custom_css_for_login_textarea_1']; ?></textarea>
-	<?php
-
-}
-
-//Beschreibung Absatz 1
-function custom_css_for_login_settings_section_callback(  ) { 
-
-	echo __( '', 'custom-login' );
-
-}
-//Beschreibung Absatz 2
-function custom_css_for_login_settings_section_2_callback(  ) { 
-
-	echo __( '', 'custom-login' );
-
-}
-//Beschreibung Absatz 3
-function custom_css_for_login_settings_section_3_callback(  ) { 
-
-	echo __( '', 'custom-login' );
-
-}
-
-
-function custom_css_for_login_options_page(  ) { 
-
-		?>
-		<form action='options.php' method='post'>
-
-			<h1>Custom CSS for Login</h1>
-
-			<?php
-			settings_fields( 'pluginPage' );
-			do_settings_sections( 'pluginPage' );
-			submit_button();
-			?>
-
-		</form>
-		<?php
-
-}
+new CustomLogin_Settings_Page();
+                
