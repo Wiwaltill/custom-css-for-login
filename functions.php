@@ -24,14 +24,14 @@ function my_login_page_remove_back_to_link() {
 			<?php if (get_option( 'logo_abrunden' ) == 1): ?>
 			border-radius: 50%;
 			<?php endif ?>
-			<?php if (get_option( 'eigene_farben_verwenden' ) == 1): ?>
+			<?php if (get_option( 'eigene_farbe_verwenden' ) == 1): ?>
 			filter: none !important;
 			<?php endif ?>
 		}
 	</style>
 	<?php endif ?> 
 
-	<?php if (get_option( 'eigene_farben_verwenden' ) == 1): ?>
+	<?php if (get_option( 'eigene_farbe_verwenden' ) == 1): ?>
 	<style type="text/css">
     	    #wp-submit {
     	    	background-color: <?php echo get_option( 'akzentfarbe' ) ?>;
