@@ -41,7 +41,9 @@ class custom_css_for_login_Settings_Page {
 	}
 
 	public function wph_setup_sections() {
-		add_settings_section( 'custom_css_for_login_section', '', array(), 'custom_css_for_login' );
+		add_settings_section( 'custom_css_for_login_section', 'Logo', array(), 'custom_css_for_login' );
+		add_settings_section( 'custom_css_for_login_section_2', 'Farben', array(), 'custom_css_for_login' );
+		add_settings_section( 'custom_css_for_login_section_3', 'Sonstiges', array(), 'custom_css_for_login' );
 	}
 
 	public function wph_setup_fields() {
@@ -85,28 +87,28 @@ class custom_css_for_login_Settings_Page {
                     ),
         
                     array(
-                        'section' => 'custom_css_for_login_section',
+                        'section' => 'custom_css_for_login_section_2',
                         'label' => 'Eigene Farben verwenden',
                         'id' => 'eigene_farbe_verwenden',
                         'type' => 'checkbox',
                     ),
         
                     array(
-                        'section' => 'custom_css_for_login_section',
+                        'section' => 'custom_css_for_login_section_2',
                         'label' => 'Akzentfarbe',
                         'id' => 'Akzentfarbe',
                         'type' => 'color',
                     ),
         
                     array(
-                        'section' => 'custom_css_for_login_section',
+                        'section' => 'custom_css_for_login_section_2',
                         'label' => 'Button Textfarbe Schwarz',
                         'id' => 'button_textfarbe_schwarz',
                         'type' => 'checkbox',
                     ),
         
                     array(
-                        'section' => 'custom_css_for_login_section',
+                        'section' => 'custom_css_for_login_section_3',
                         'label' => 'Eigenes CSS',
                         'id' => 'eigenes_css',
                         'type' => 'textarea',
