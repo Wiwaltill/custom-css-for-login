@@ -6,10 +6,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 function my_login_page_remove_back_to_link() {
 
-	$options = get_option( 'custom_css_for_login_settings' );
-
-	$hex1 = $options['custom_css_for_login_color_field_1'];
-	list($r1, $g1, $b1) = sscanf($hex1, "#%02x%02x%02x");
+	//$options = get_option( 'custom_css_for_login_settings' );
 
 	if ( get_option( 'eigenes_logo_verwenden' ) == 1): ?>
 	<style type="text/css">
@@ -40,7 +37,7 @@ function my_login_page_remove_back_to_link() {
     	    	background-color: <?php echo get_option( 'akzentfarbe' ) ?>;
 				border-color: <?php echo get_option( 'akzentfarbe' ) ?>;
 				transition: 0.1s;
-				<?php if ($options['custom_css_for_login_checkbox_field_5'] == 1): ?>
+				<?php if (get_option( 'button_textfarbe_schwarz' ) == 1): ?>
 				color: black !important;
 				<?php endif ?>
     	    }
@@ -48,7 +45,7 @@ function my_login_page_remove_back_to_link() {
 				border: 1px solid black;
 				box-shadow: 0 0 79px -24px black inset;
 				transition: 0.1s;
-				<?php if ($options['custom_css_for_login_checkbox_field_5'] == 1): ?>
+				<?php if (get_option( 'button_textfarbe_schwarz' ) == 1): ?>
 				color: white !important;
 				<?php endif ?>
 			}
