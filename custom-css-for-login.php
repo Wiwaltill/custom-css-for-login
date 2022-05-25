@@ -49,7 +49,7 @@ if( ! class_exists( 'UpdateChecker' ) ) {
 
 			$this->plugin_slug = plugin_basename( __DIR__ );
 			$this->version = '2.0';
-			$this->cache_key = 'custom_upd';
+			$this->cache_key = 'custom_css_for_login_upd';
 			$this->cache_allowed = false;
 
 			add_filter( 'plugins_api', array( $this, 'info' ), 20, 3 );
