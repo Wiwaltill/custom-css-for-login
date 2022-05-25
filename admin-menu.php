@@ -20,7 +20,7 @@ class CustomLogin_Settings_Page {
 		$page_title = 'Custom CSS for Login';
 		$menu_title = 'Custom Login';
 		$capability = 'manage_options';
-		$slug = 'custom_css_for_login';
+		$slug = 'CustomLogin';
 		$callback = array($this, 'wph_settings_content');
                 add_options_page($page_title, $menu_title, $capability, $slug, $callback);
 		
