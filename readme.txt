@@ -2,7 +2,7 @@
 Contributors: Till Esser
 Donate link: 
 Tags: login, css, custom login, custom, logo
-Tested up to: 5.8
+Tested up to: 6.0
 Stable tag: 1.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -21,7 +21,20 @@ Custom CSS for Login Plugin would give you and your users a feeling that it is a
 1. Settings Page
  
 == Changelog ==
- 
+
+= 2.0 =
+* PHP 8.0 Support
+* New Options Page
+
+= 1.8 =
+* Bug fixes.
+
+= 1.7 =
+* Bug fixes.
+
+= 1.6 =
+* Update: UpdateChecker.
+
 = 1.5 =
 * Bug fixes.
 
