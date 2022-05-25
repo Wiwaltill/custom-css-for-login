@@ -4,9 +4,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-// Settings Page: CustomLogin
+// Settings Page: custom_css_for_login
 // Retrieving values: get_option( 'your_field_id' )
-class CustomLogin_Settings_Page {
+class custom_css_for_login_Settings_Page {
 
 	public function __construct() {
 		add_action( 'admin_menu', array( $this, 'wph_create_settings' ) );
@@ -20,7 +20,7 @@ class CustomLogin_Settings_Page {
 		$page_title = 'Custom CSS for Login';
 		$menu_title = 'Custom Login';
 		$capability = 'manage_options';
-		$slug = 'CustomLogin';
+		$slug = 'custom_css_for_login';
 		$callback = array($this, 'wph_settings_content');
                 add_options_page($page_title, $menu_title, $capability, $slug, $callback);
 		
@@ -32,8 +32,8 @@ class CustomLogin_Settings_Page {
 			<?php settings_errors(); ?>
 			<form method="POST" action="options.php">
 				<?php
-					settings_fields( 'CustomLogin' );
-					do_settings_sections( 'CustomLogin' );
+					settings_fields( 'custom_css_for_login' );
+					do_settings_sections( 'custom_css_for_login' );
 					submit_button();
 				?>
 			</form>
@@ -41,20 +41,20 @@ class CustomLogin_Settings_Page {
 	}
 
 	public function wph_setup_sections() {
-		add_settings_section( 'CustomLogin_section', '', array(), 'CustomLogin' );
+		add_settings_section( 'custom_css_for_login_section', '', array(), 'custom_css_for_login' );
 	}
 
 	public function wph_setup_fields() {
 		$fields = array(
                     array(
-                        'section' => 'CustomLogin_section',
+                        'section' => 'custom_css_for_login_section',
                         'label' => 'Eigenes Logo verwenden',
                         'id' => 'eigenes_logo_verwenden',
                         'type' => 'checkbox',
                     ),
         
                     array(
-                        'section' => 'CustomLogin_section',
+                        'section' => 'custom_css_for_login_section',
                         'label' => 'Grafik',
                         'id' => 'grafik',
                         'type' => 'media',
@@ -62,7 +62,7 @@ class CustomLogin_Settings_Page {
                     ),
         
                     array(
-                        'section' => 'CustomLogin_section',
+                        'section' => 'custom_css_for_login_section',
                         'label' => 'Logo Höhe',
                         'placeholder' => '84px',
                         'id' => 'logo_hoehe',
@@ -70,7 +70,7 @@ class CustomLogin_Settings_Page {
                     ),
         
                     array(
-                        'section' => 'CustomLogin_section',
+                        'section' => 'custom_css_for_login_section',
                         'label' => 'Logo Breite',
                         'placeholder' => '84px',
                         'id' => 'logo_breite',
@@ -78,43 +78,43 @@ class CustomLogin_Settings_Page {
                     ),
         
                     array(
-                        'section' => 'CustomLogin_section',
+                        'section' => 'custom_css_for_login_section',
                         'label' => 'Logo abrunden',
                         'id' => 'logo_abrunden',
                         'type' => 'checkbox',
                     ),
         
                     array(
-                        'section' => 'CustomLogin_section',
+                        'section' => 'custom_css_for_login_section',
                         'label' => 'Eigene Farben verwenden',
                         'id' => 'eigene_farbe_verwenden',
                         'type' => 'checkbox',
                     ),
         
                     array(
-                        'section' => 'CustomLogin_section',
+                        'section' => 'custom_css_for_login_section',
                         'label' => 'Akzentfarbe',
                         'id' => 'Akzentfarbe',
                         'type' => 'color',
                     ),
         
                     array(
-                        'section' => 'CustomLogin_section',
+                        'section' => 'custom_css_for_login_section',
                         'label' => 'Button Textfarbe Schwarz',
                         'id' => 'button_textfarbe_schwarz',
                         'type' => 'checkbox',
                     ),
         
                     array(
-                        'section' => 'CustomLogin_section',
+                        'section' => 'custom_css_for_login_section',
                         'label' => 'Eigenes CSS',
                         'id' => 'eigenes_css',
                         'type' => 'textarea',
                     )
 		);
 		foreach( $fields as $field ){
-			add_settings_field( $field['id'], $field['label'], array( $this, 'wph_field_callback' ), 'CustomLogin', $field['section'], $field );
-			register_setting( 'CustomLogin', $field['id'] );
+			add_settings_field( $field['id'], $field['label'], array( $this, 'wph_field_callback' ), 'custom_css_for_login', $field['section'], $field );
+			register_setting( 'custom_css_for_login', $field['id'] );
 		}
 	}
 	public function wph_field_callback( $field ) {
@@ -221,5 +221,5 @@ class CustomLogin_Settings_Page {
 	}
     
 }
-new CustomLogin_Settings_Page();
+new custom_css_for_login_Settings_Page();
                 
