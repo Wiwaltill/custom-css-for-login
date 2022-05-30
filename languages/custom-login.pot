@@ -1,11 +1,11 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Custom CSS for Login\n"
+"Project-Id-Version: Custom CSS for Login v2.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-05-30 12:30+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Last-Translator: TiLL Esser <info@till-esser.de>\n"
 "Language-Team: \n"
 "Language: \n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
@@ -30,4 +30,52 @@ msgstr ""
 
 #. Author of the plugin
 msgid "Till Esser"
+msgstr ""
+
+#: admin-menu.php:44
+msgid "Logo"
+msgstr ""
+
+#: admin-menu.php:45
+msgid "Farben"
+msgstr ""
+
+#: admin-menu.php:46
+msgid "Sonstiges"
+msgstr ""
+
+#: admin-menu.php:53
+msgid "Eigenes Logo verwenden"
+msgstr ""
+
+#: admin-menu.php:60
+msgid "Grafik"
+msgstr ""
+
+#: admin-menu.php:68
+msgid "Logo Höhe"
+msgstr ""
+
+#: admin-menu.php:76
+msgid "Logo Breite"
+msgstr ""
+
+#: admin-menu.php:84
+msgid " Logo abrunden"
+msgstr ""
+
+#: admin-menu.php:91
+msgid "Eigene Farben verwenden"
+msgstr ""
+
+#: admin-menu.php:98
+msgid "Akzentfarbe"
+msgstr ""
+
+#: admin-menu.php:105
+msgid "Button Textfarbe Schwarz"
+msgstr ""
+
+#: admin-menu.php:112
+msgid "Eigenes CSS"
 msgstr ""
