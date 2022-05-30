@@ -4,7 +4,7 @@
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
 
-# custom-css-for-login
+# Custom CSS for Login
 WordPress Plugin
 
 <!-- MARKDOWN LINKS & IMAGES -->
