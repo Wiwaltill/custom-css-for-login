@@ -3,7 +3,7 @@
  * Plugin Name: Custom CSS for Login
  * Description: Einfache gestaltung des Admin Logins via CSS
  * Author: Till Esser
- * Author URI: http://till-esser.de
+ * Author URI: https://till-esser.de
  * Version: 2.0
  * Text Domain: custom-login
  * Domain Path: /languages
