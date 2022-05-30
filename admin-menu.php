@@ -41,23 +41,23 @@ class custom_css_for_login_Settings_Page {
 	}
 
 	public function wph_setup_sections() {
-		add_settings_section( 'custom_css_for_login_section', 'Logo', array(), 'custom_css_for_login' );
-		add_settings_section( 'custom_css_for_login_section_2', 'Farben', array(), 'custom_css_for_login' );
-		add_settings_section( 'custom_css_for_login_section_3', 'Sonstiges', array(), 'custom_css_for_login' );
+		add_settings_section( 'custom_css_for_login_section', __('Logo'), array(), 'custom_css_for_login' );
+		add_settings_section( 'custom_css_for_login_section_2', __('Farben'), array(), 'custom_css_for_login' );
+		add_settings_section( 'custom_css_for_login_section_3', __('Sonstiges'), array(), 'custom_css_for_login' );
 	}
 
 	public function wph_setup_fields() {
 		$fields = array(
                     array(
                         'section' => 'custom_css_for_login_section',
-                        'label' => 'Eigenes Logo verwenden',
+                        'label' => __('Eigenes Logo verwenden'),
                         'id' => 'eigenes_logo_verwenden',
                         'type' => 'checkbox',
                     ),
         
                     array(
                         'section' => 'custom_css_for_login_section',
-                        'label' => 'Grafik',
+                        'label' => __('Grafik'),
                         'id' => 'grafik',
                         'type' => 'media',
                         'returnvalue' => 'url'
@@ -65,7 +65,7 @@ class custom_css_for_login_Settings_Page {
         
                     array(
                         'section' => 'custom_css_for_login_section',
-                        'label' => 'Logo Höhe',
+                        'label' => __('Logo Höhe'),
                         'placeholder' => '84px',
                         'id' => 'logo_hoehe',
                         'type' => 'text',
@@ -73,7 +73,7 @@ class custom_css_for_login_Settings_Page {
         
                     array(
                         'section' => 'custom_css_for_login_section',
-                        'label' => 'Logo Breite',
+                        'label' => __('Logo Breite'),
                         'placeholder' => '84px',
                         'id' => 'logo_breite',
                         'type' => 'text',
@@ -81,35 +81,35 @@ class custom_css_for_login_Settings_Page {
         
                     array(
                         'section' => 'custom_css_for_login_section',
-                        'label' => 'Logo abrunden',
+                        'label' => __('Logo abrunden'),
                         'id' => 'logo_abrunden',
                         'type' => 'checkbox',
                     ),
         
                     array(
                         'section' => 'custom_css_for_login_section_2',
-                        'label' => 'Eigene Farben verwenden',
+                        'label' => __('Eigene Farben verwenden'),
                         'id' => 'eigene_farbe_verwenden',
                         'type' => 'checkbox',
                     ),
         
                     array(
                         'section' => 'custom_css_for_login_section_2',
-                        'label' => 'Akzentfarbe',
+                        'label' => __('Akzentfarbe'),
                         'id' => 'Akzentfarbe',
                         'type' => 'color',
                     ),
         
                     array(
                         'section' => 'custom_css_for_login_section_2',
-                        'label' => 'Button Textfarbe Schwarz',
+                        'label' => __('Button Textfarbe Schwarz'),
                         'id' => 'button_textfarbe_schwarz',
                         'type' => 'checkbox',
                     ),
         
                     array(
                         'section' => 'custom_css_for_login_section_3',
-                        'label' => 'Eigenes CSS',
+                        'label' => __('Eigenes CSS'),
                         'id' => 'eigenes_css',
                         'type' => 'textarea',
                     )
