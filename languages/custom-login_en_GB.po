@@ -1,80 +1,80 @@
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Custom CSS for Login v2.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-05-30 14:47+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2022-05-30 14:55+0200\n"
 "Last-Translator: TiLL Esser <info@till-esser.de>\n"
 "Language-Team: TiLL Esser <info@till-esser.de>\n"
+"Language: en_GB\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.0.1\n"
 "X-Loco-Version: 2.6.2; wp-6.0\n"
 "X-Domain: custom-login\n"
 
 #. Name of the plugin
 msgid "Custom CSS for Login"
-msgstr ""
+msgstr "Custom CSS for Login"
 
 #. Description of the plugin
 msgid "Einfache gestaltung des Admin Logins via CSS"
-msgstr ""
+msgstr "Simple design of the admin login via CSS"
 
 #. Author URI of the plugin
 msgid "https://till-esser.de"
-msgstr ""
+msgstr "https://till-esser.de"
 
 #. Author of the plugin
 msgid "Till Esser"
-msgstr ""
+msgstr "Till Esser"
 
 #: admin-menu.php:44
 msgid "Logo"
-msgstr ""
+msgstr "Logo"
 
 #: admin-menu.php:45
 msgid "Farben"
-msgstr ""
+msgstr "Colours"
 
 #: admin-menu.php:46
 msgid "Sonstiges"
-msgstr ""
+msgstr "Other"
 
 #: admin-menu.php:53
 msgid "Eigenes Logo verwenden"
-msgstr ""
+msgstr "Use your own logo"
 
 #: admin-menu.php:60
 msgid "Grafik"
-msgstr ""
+msgstr "Graphic"
 
 #: admin-menu.php:68
 msgid "Logo Höhe"
-msgstr ""
+msgstr "Logo Höhe"
 
 #: admin-menu.php:76
 msgid "Logo Breite"
-msgstr ""
+msgstr "Logo width"
 
 #: admin-menu.php:84
 msgid "Logo abrunden"
-msgstr ""
+msgstr "Logo round off"
 
 #: admin-menu.php:91
 msgid "Eigene Farben verwenden"
-msgstr ""
+msgstr "Use own colours"
 
 #: admin-menu.php:98
 msgid "Akzentfarbe"
-msgstr ""
+msgstr "Accent colour"
 
 #: admin-menu.php:105
 msgid "Button Textfarbe Schwarz"
-msgstr ""
+msgstr "Button Text Colour Black"
 
 #: admin-menu.php:112
 msgid "Eigenes CSS"
-msgstr ""
+msgstr "Own CSS"
