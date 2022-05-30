@@ -13,6 +13,12 @@ WordPress Plugin
 
 <img width="655" alt="Bildschirmfoto 2022-05-30 um 14 08 48" src="https://user-images.githubusercontent.com/74987472/170989733-e195555c-6a73-454b-963c-34c040bed595.png">
 
+## Unterstützte Sprachen
+- Deutsch
+- Englisch (UK)
+- Englisch (GB)
+- Französich
+
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [contributors-shield]: https://img.shields.io/github/contributors/Wiwaltill/custom-css-for-login.svg?style=for-the-badge
