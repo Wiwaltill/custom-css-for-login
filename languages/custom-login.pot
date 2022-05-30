@@ -25,7 +25,7 @@ msgid "Einfache gestaltung des Admin Logins via CSS"
 msgstr ""
 
 #. Author URI of the plugin
-msgid "http://till-esser.de"
+msgid "https://till-esser.de"
 msgstr ""
 
 #. Author of the plugin
