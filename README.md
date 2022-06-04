@@ -14,10 +14,42 @@ WordPress Plugin
 <img width="655" alt="Bildschirmfoto 2022-05-30 um 14 08 48" src="https://user-images.githubusercontent.com/74987472/170989733-e195555c-6a73-454b-963c-34c040bed595.png">
 
 ## Unterstützte Sprachen
+
 - Deutsch
 - Englisch (UK)
 - Englisch (GB)
 - Französich
+
+## Changelog
+
+- 2.1
+  - Fixed Trasnlations
+- 2.0
+  - PHP 8.0 Support
+  - New Options Page
+- 1.8
+  - Bug fixes.
+- 1.7
+  - Bug fixes.
+- 1.6
+  - Update: UpdateChecker
+- 1.5
+  - Bug fixes.
+- 1.4
+  - Added Button Color Black Fuction.
+  - Added Logo Hover off Button.
+  - Bug fixes.
+- 1.3
+  - Added View Details Button.
+  - Bug fixes.
+- 1.2
+  - Bug fixes.
+- 1.1
+  - Added automatic updates function.
+  - Bug fixes.
+- 1.0
+  - Initital release.
+  - Settings Page available
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
