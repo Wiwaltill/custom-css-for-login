@@ -194,6 +194,7 @@ if( ! class_exists( 'UpdateChecker' ) ) {
 	new UpdateChecker();
 
 }
+
 //Detail-Anzeige
 add_filter( 'plugin_row_meta', function( $links_array, $plugin_file_name, $plugin_data, $status ) {
 
