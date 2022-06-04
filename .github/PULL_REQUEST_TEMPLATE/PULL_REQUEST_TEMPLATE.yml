@@ -1,0 +1,25 @@
+name: "Pull Request"
+description: Create a new ticket for a pull request.
+title: "[PULL REQUEST] - <title>"
+labels: [
+  
+]
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: "Description/Changes"
+      description: Please enter an explicit description of your pull request
+      placeholder: Short and explicit description of your pull request...
+    validations:
+      required: true
+  - type: textarea
+    id: screenshot
+    attributes:
+      label: "Example View"
+      description: If applicable, add screenshots to help explain your request.
+      value: |
+        ![DESCRIPTION](LINK.png)
+      render: bash
+    validations:
+      required: false
