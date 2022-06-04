@@ -12,7 +12,7 @@
 #   - Folder dev-helpers/ <= not needed for the plugin
 # - Upload the .zip file as an artifact to the action (this step is possibly optional)
 # - Upload the .zip file as a release, for download
-name: Generate Installable Plugin, and Upload as Release Asset
+name: Generate Plugin for Release
 on:
   release:
     types: [published]
@@ -33,11 +33,11 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v2
         with:
-            name: graphql-api
-            path: build/graphql-api.zip
+            name: custom-login-for-css
+            path: build/custom-login-for-css.zip
       - name: Upload to release
         uses: JasonEtco/upload-to-release@master
         with:
-          args: build/graphql-api.zip application/zip
+          args: build/custom-login-for-css.zip application/zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
