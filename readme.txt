@@ -22,6 +22,9 @@ Custom CSS for Login Plugin would give you and your users a feeling that it is a
  
 == Changelog ==
 
+= 2.1 =
+* Fixed Translations
+
 = 2.0 =
 * PHP 8.0 Support
 * New Options Page
