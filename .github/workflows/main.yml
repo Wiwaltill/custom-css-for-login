@@ -37,7 +37,8 @@ jobs:
           # Working directory before zipping
           directory: . # optional, default is .
           # List of excluded files / directories
-          exclusions: .github # optional, default is 
+          exclusions: /.github
+          # optional, default is 
           # List of excluded files / directories with recursive wildcards (only applies on Windows with `zip` type)
           recursive_exclusions: none # optional, default is 
           # Tool to use for archiving
