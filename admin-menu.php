@@ -30,7 +30,7 @@ class custom_css_for_login_Settings_Page {
 		<div class="wrap">
 			<h1>Custom Login</h1>
 			<?php settings_errors(); ?>
-			<form method="POST" action="options-general.php">
+			<form method="POST" action="options.php">
 				<?php
 					settings_fields( 'custom_css_for_login' );
 					do_settings_sections( 'custom_css_for_login' );
