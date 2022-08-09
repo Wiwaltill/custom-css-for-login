@@ -22,6 +22,12 @@ Custom CSS for Login Plugin would give you and your users a feeling that it is a
  
 == Changelog ==
 
+= 2.2 =
+* Bug fix: Options page "Submit" button
+
+= 2.1 =
+* Fixed Translations
+
 = 2.0 =
 * Fixed Translations
 
@@ -30,33 +36,33 @@ Custom CSS for Login Plugin would give you and your users a feeling that it is a
 * New Options Page
 
 = 1.8 =
-* Bug fixes.
+* Bug fixes
 
 = 1.7 =
-* Bug fixes.
+* Bug fixes
 
 = 1.6 =
-* Update: UpdateChecker.
+* Update: UpdateChecker
 
 = 1.5 =
-* Bug fixes.
+* Bug fixes
 
 = 1.4 =
-* Added Button Color Black Fuction.
-* Added Logo Hover off Button.
-* Bug fixes.
+* Added Button Color Black Fuction
+* Added Logo Hover off Button
+* Bug fixes
 
 = 1.3 =
-* Added View Details Button.
-* Bug fixes.
+* Added View Details Button
+* Bug fixes
 
 = 1.2 =
-* Bug fixes.
+* Bug fixes
 
 = 1.1 =
-* Added automatic updates function.
-* Bug fixes.
+* Added automatic updates function
+* Bug fixes
 
 = 1.0 =
-* Initital release.
+* Initital release
 * Settings Page available
