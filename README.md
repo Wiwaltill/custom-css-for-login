@@ -22,6 +22,10 @@ WordPress Plugin
 
 ## Changelog
 
+- 2.3
+  - Bug fixes.
+- 2.2
+  - Bug fixes.
 - 2.1
   - Fixed Trasnlations
 - 2.0

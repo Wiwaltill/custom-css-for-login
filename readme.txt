@@ -22,6 +22,9 @@ Custom CSS for Login Plugin would give you and your users a feeling that it is a
  
 == Changelog ==
 
+= 2.3 =
+* Bug fix: Options page "Submit" button
+
 = 2.2 =
 * Bug fix: Options page "Submit" button
 
