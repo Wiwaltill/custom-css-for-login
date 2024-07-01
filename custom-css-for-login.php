@@ -4,7 +4,7 @@
  * Description: Einfache gestaltung des Admin Logins via CSS
  * Author: Till Esser
  * Author URI: https://till-esser.de
- * Version: 2.3
+ * Version: 2.3.1
  * Text Domain: custom-login
  * Domain Path: /languages
  */
